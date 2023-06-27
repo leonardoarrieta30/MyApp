@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,7 +37,7 @@ public class User extends AuditModel {
     @Size(max = 150)
     private String second_surname;
 
-
+    @Min(18)
     private int age;
 
     @Size(max = 150)

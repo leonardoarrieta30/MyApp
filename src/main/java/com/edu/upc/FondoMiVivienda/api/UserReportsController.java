@@ -10,6 +10,7 @@ import com.edu.upc.shared.exception.ResourceNotFoundException;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -46,4 +47,21 @@ public class UserReportsController {
 
         return null;
     }
+//
+////    @DeleteMapping("{userId}")
+////    public ReportResource deleteReportByUserId(@PathVariable Long userId,
+////                                       @RequestBody CreateReportResource resource) {
+////
+////        userService.addReportToUser(userId, resource.getNroCuota(),resource.getAmortizacion(),resource.getInteres(),
+////                resource.getDesgravamen(),resource.getCuota(),resource.getSaldoInicial(),resource.getSaldoFinal());
+////
+////
+////        return userService.delete(userId,resource);
+////    }
+////
+////
+////    @DeleteMapping("{userId}")
+////    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
+//        return userService.delete(userId);
+//    }
 }
