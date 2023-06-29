@@ -21,4 +21,6 @@ public class UpdateReportResource {
     private Number saldoInicial;
 
     private Number saldoFinal;
+
+    private Number cronograma;
 }

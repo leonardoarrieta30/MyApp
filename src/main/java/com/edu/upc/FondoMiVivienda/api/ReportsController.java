@@ -1,17 +1,21 @@
 package com.edu.upc.FondoMiVivienda.api;
 
 import com.edu.upc.FondoMiVivienda.domain.model.entity.Report;
+import com.edu.upc.FondoMiVivienda.domain.model.entity.User;
 import com.edu.upc.FondoMiVivienda.domain.persistence.ReportRepository;
 import com.edu.upc.FondoMiVivienda.domain.service.ReportService;
 import com.edu.upc.FondoMiVivienda.mapping.ReportMapper;
 import com.edu.upc.FondoMiVivienda.resource.*;
 import com.edu.upc.FondoMiVivienda.service.CuotaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/cuota", produces = "application/json")
@@ -22,12 +26,29 @@ public class ReportsController {
     private final ReportRepository repository;
     private final ReportMapper mapper;
 
+//    @Autowired
+//    private ReportRepository repository1;
+
     public ReportsController(ReportService reportService, CuotaService cuotaService, ReportRepository repository, ReportMapper mapper) {
         this.reportService = reportService;
         this.cuotaService = cuotaService;
         this.repository = repository;
         this.mapper = mapper;
     }
+
+//    @PostMapping("/{userId}")
+//    public Report createReport(@PathVariable Long userId, @RequestBody Report cuota) {
+//        User user = new User();
+//        user.setId(userId);
+//        cuota.setUsuario(user);
+//        return repository.save(cuota);
+//    }
+//
+//    @GetMapping("/{userId}")
+//    public List<Report> getReportsByUserId(@PathVariable Long userId) {
+//        return repository.findByUserId(userId);
+//    }
+
 
     @GetMapping
     public Page<ReportResource> getAllReports(Pageable pageable) {

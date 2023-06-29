@@ -33,6 +33,17 @@ public class Report extends AuditModel {
 
     private Number saldoFinal;
 
+    private Number cronograma;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id",nullable=false)
+    private User user;
+
+
+    public void setUsuario(User user) {
+        this.user = user;
+        user.getCuotas().add(this);
+    }
 //
 //    @Embedded
 //    private EntidadEmbebida entidadEmbebida;

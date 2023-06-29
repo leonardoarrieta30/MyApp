@@ -1,5 +1,6 @@
 package com.edu.upc.FondoMiVivienda.domain.service;
 
+import com.edu.upc.FondoMiVivienda.domain.model.entity.Report;
 import com.edu.upc.FondoMiVivienda.domain.model.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,7 +17,9 @@ public interface UserService {
     User update(Long userId, User request);
     ResponseEntity<?> delete(Long userId);
 
-
+    User addReportToUser(Long UserId, String nrCuota, Number amortizacion,
+                         Number interes, Number desgravamen, Number cuota,
+                         Number saldoInicial,Number saldoFinal );
 
 
 }

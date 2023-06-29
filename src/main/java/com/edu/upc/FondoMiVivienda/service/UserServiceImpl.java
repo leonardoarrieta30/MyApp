@@ -1,5 +1,6 @@
 package com.edu.upc.FondoMiVivienda.service;
 
+import com.edu.upc.FondoMiVivienda.domain.model.entity.Report;
 import com.edu.upc.FondoMiVivienda.domain.model.entity.User;
 import com.edu.upc.FondoMiVivienda.domain.persistence.UserRepository;
 import com.edu.upc.FondoMiVivienda.domain.service.UserService;
@@ -73,4 +74,13 @@ public class UserServiceImpl implements UserService {
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, userId));
     }
+
+    @Override
+    public User addReportToUser(Long userId, String nroCuota, Number amortizacion, Number interes,
+                                Number desgravamen, Number cuota, Number saldoInicial, Number saldoFinal) {
+        return userRepository.findById(userId).map(skill -> {
+            return userRepository.save(skill.addReport(nroCuota, amortizacion, interes, desgravamen,cuota, saldoInicial, saldoFinal));
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, userId));
+    }
+
 }

@@ -25,5 +25,7 @@ public class CreateReportResource {
     private Number saldoInicial;
 
     private Number saldoFinal;
+
+    private Number cronograma;
 }
 
